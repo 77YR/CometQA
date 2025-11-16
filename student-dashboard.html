@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="script.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <h1 class="title">Dashboard</h1>
+    <nav id="site-nav" class="nav" role="navigation">
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="professor-dashboard.html">Professor Dashboard</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a class="cta" href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+  <div id="student-courses" class="courses-container"></div> 
+  <button id="dashboard-course-btn" class="button-9">Join Course</button>
+  <button id="dashboard-lecture-btn" class="button-9">Join Lecture</button>
+</main>
+
+  <footer class="site-footer">
+    <small>© 2025 CometQA</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Post a Question</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="script.js"></script>
+</head>
+<body data-course="PHYS2325">
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <h1 class="title">Post a Question</h1>
+    <nav id="site-nav" class="nav" role="navigation">
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="professor-dashboard.html">Professor Dashboard</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a class="cta" href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="post-question-container">
+        <div class="post-question">
+            <div>
+                <label for="question-title">Title</label>
+                <input type="text" id="question-title" placeholder="Enter your question title" />
+            </div>
+            <div>
+                <label for="question-content">Question</label>
+                <textarea id="question-content" placeholder="Describe your question"></textarea>
+            </div>
+        </div>
+      <div class="ai-section">
+        <!--<p>Optional: Get AI suggestion after posting</p>-->
+        <button id="ai-button" disabled class="button-10">Generate AI Response</button>
+      </div>
+
+      <button id="post-button" class="button-9">Post Question</button>
+    </div>
+  </main>
+
+  
+
+  <footer class="site-footer">
+    <small>© 2025 CometQA</small>
+  </footer>
+</body>
+</html>

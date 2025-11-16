@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Course Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="script.js"></script>
+</head>
+
+<body data-course="">
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <h1 id="course-title" class="title">Course Name</h1>
+    <nav id="site-nav" class="nav" role="navigation">
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="professor-dashboard.html">Professor Dashboard</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a class="cta" href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div id="course-info"></div>
+    <div id="forum-questions" class="questions-container"></div>
+    <button id="post-question" class="post-btn">Post Question</button>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 CometQA</small>
+  </footer>
+
+  <script>
+    // Automatically detect course from URL or fallback to data-course
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseId = urlParams.get("course") || document.body.dataset.course;
+    if (!courseId) {
+      alert("No course specified!");
+    } else {
+      document.body.dataset.course = courseId; // ensure script.js can access it
+    }
+  </script>
+</body>
+</html>

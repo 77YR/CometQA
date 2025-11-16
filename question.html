@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Question</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="question.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <h1 class="title">View Question</h1>
+    <nav id="site-nav" class="nav" role="navigation">
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="professor-dashboard.html">Professor Dashboard</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a class="cta" href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div id="question-container">
+      <div class="post-question">
+        <h2 id="question-title"></h2>
+        <p id="question-content"></p>
+      </div>
+
+      <div id="ai-response-container" class="ai-answer">
+        <h3>AI Response:</h3>
+        <p id="ai-response">[Placeholder AI response]</p>
+        <span id="ai-badge"></span>
+      </div>
+
+      <div id="professor-buttons" style="margin: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px ;">
+        <button id="approve-ai-btn" class="button-8"></button>
+        <button id="delete-question-btn" class="button-8">Delete Question</button>
+        <button id="add-response-btn" class="button-8">Add Response</button>
+      </div>
+      
+      <h3>Professor Response</h3>
+      <div id="professor-response-container" class="post-question"></div>
+
+    </div>
+  </main>
+</body>
+</html>
