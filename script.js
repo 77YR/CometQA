@@ -39,6 +39,42 @@ async function getAllQuestions(courseId) {
   return questionsSnapshot.docs.map(d => ({ id: d.id, ...d.data() }));
 }
 
+async function generateAiForQuestion(questionRef, questionData) {
+  try {
+    const payload = {
+      question: `${questionData.title}\n\n${questionData.content}`,
+      courseId
+    };
+
+    const res = await fetch("https://us-central1/YOUR_PROJECT_ID.cloudfunctions.net/getAnswer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      console.error("AI backend error:", await res.text());
+      return "[AI error: could not generate answer]";
+    }
+
+    const data = await res.json();
+    const aiText = data.answer || "[No AI answer returned]";
+    const urgency = data.urgency || "low";
+
+    await updateDoc(questionRef, {
+      aiResponse: aiText,
+      aiUrgency: urgency,
+      aiApproved: false
+    });
+
+    return aiText;
+  } catch (err) {
+    console.error("AI call failed:", err);
+    return "[AI error: could not generate answer]";
+  }
+}
+
+
 // ---------------------- POST QUESTION PAGE ----------------------
 if (isPostPage) {
   const titleInput = document.getElementById("question-title");
@@ -174,8 +210,17 @@ if (isQuestionPage) {
     const q = questionSnap.data();
     questionTitleEl.textContent = q.title;
     questionContentEl.textContent = q.content;
-    aiResponseEl.textContent = q.aiResponse || "[Placeholder AI response]";
+
+    if (q.aiResponse && q.aiResponse.trim() !== "") {
+      aiResponseEl.textContent = q.aiResponse;
+    } else {
+      aiResponseEl.textContent = "Generating AI answer...";
+      const aiText = await generateAiForQuestion(questionRef, q);
+      aiResponseEl.textContent = aiText;
+    }
+
     aiBadgeEl.textContent = q.aiApproved ? "✔ Approved" : "✖ Not Approved";
+
 
     // show professor-only buttons only if user role is professor
     if (userData.role === "professor") {
