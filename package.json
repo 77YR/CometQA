@@ -1,22 +1,25 @@
 {
-  "name": "cometqa",
+  "name": "projects",
   "version": "1.0.0",
-  "main": "index.ts",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+  "dev": "vite src",
+  "build": "vite build src --outDir dist",
+  "preview": "vite preview --strictPort --port 4173",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "Kevin H. Nguyen",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "expo": "~54.0.20",
-    "expo-status-bar": "~3.0.8",
-    "react": "19.1.0",
-    "react-native": "0.81.5"
-  },
+    "dotenv": "^17.2.3",
+    "firebase": "^12.6.0",
+    "node": "^25.2.0"
+  }
+  ,
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
-  },
-  "private": true
+    "vite": "^5.1.0"
+  }
 }
