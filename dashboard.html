@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="script.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <h1 class="title" style="text-align: center;">Dashboard</h1>
+    <nav id="site-nav" class="nav" role="navigation">
+      <ul>
+        <!-- <li><a href="student-dashboard.html">Dashboard</a></li> -->
+        <li><button id="logout-btn" class="button-9" >⍈</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div id="student-courses" class="courses-container"></div> 
+    <button id="dashboard-course-btn" class="button-9">Join / Create Course</button>
+    <button id="dashboard-lecture-btn" class="button-9">Join Lecture</button>
+  </main>
+
+  <!-- Modal for Join/Create Course -->
+  <div id="course-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h3 id="modal-title">Join / Create Course</h3>
+      <form id="course-form">
+        <div id="professor-fields" style="display:none;">
+          <input type="text" id="course-name" placeholder="Course Name" required />
+          <input type="text" id="course-code" placeholder="Course Code" required />
+          <input type="text" id="course-schedule" placeholder="Course Schedule" required />
+        </div>
+        <div id="student-fields" style="display:none;">
+          <input type="text" id="enroll-code" placeholder="Enter Enroll Code" required />
+        </div>
+        <button type="submit" class="button-9" id="submit-course-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <small>© 2025 CometQA</small>
+  </footer>
+</body>
+</html>
